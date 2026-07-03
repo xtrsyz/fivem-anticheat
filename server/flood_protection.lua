@@ -15,10 +15,9 @@ CreateThread(function()
 end)
 
 AddEventHandler('entityCreating', function(handle)
-    -- Cari owner dari entity yang mau di-spawn
-    -- NetworkGetFirstEntityOwner belum tersedia di entityCreating hook,
-    -- jadi kita pakai routing bucket owner via source (available via global)
-    local src = source   -- player yang trigger spawn (kalau ada)
+    -- `source` di dalam entityCreating berisi server ID dari player pemilik entity.
+    -- Kalau 0 atau tidak ada (dibuat oleh server script), skip saja.
+    local src = source
     if not src or src == 0 then return end
 
     local id = tonumber(src)

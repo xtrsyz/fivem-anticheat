@@ -17,6 +17,4 @@ for _, eventName in ipairs(Config.HoneypotEvents) do
             GetPlayerName(src) or '?', src, name))
         banPlayer(src, 'Honeypot triggered: ' .. name)
     end)
-    -- Daftarkan event supaya bisa diterima
-    AddEventHandler(name, function() end)
 end

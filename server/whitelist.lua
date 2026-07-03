@@ -24,7 +24,7 @@ end
 ---@param src number
 ---@param state boolean
 local function setWhitelisted(src, state)
-    whitelistedPlayers[tonumber(src)] = state or nil
+    whitelistedPlayers[tonumber(src)] = state and true or nil
 end
 
 -- Bersihkan whitelist runtime saat player disconnect
